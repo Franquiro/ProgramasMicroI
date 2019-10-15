@@ -1,0 +1,154 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4620 ]
+[d frameptr 4065 ]
+"4 /opt/microchip/xc8/v2.10/pic/sources/c99/common/fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 /opt/microchip/xc8/v2.10/pic/sources/c99/common/float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"43 /opt/microchip/xc8/v2.10/pic/sources/c99/common/fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"86 /opt/microchip/xc8/v2.10/pic/sources/c99/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 /opt/microchip/xc8/v2.10/pic/sources/c99/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 /opt/microchip/xc8/v2.10/pic/sources/c99/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 /opt/microchip/xc8/v2.10/pic/sources/c99/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 /opt/microchip/xc8/v2.10/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 /opt/microchip/xc8/v2.10/pic/sources/c99/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 /opt/microchip/xc8/v2.10/pic/sources/c99/common/sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 /opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 /opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"10 /opt/microchip/xc8/v2.10/pic/sources/c99/common/xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"17 /home/fran/Documents/UCA/Microcontroladores/MPLABX_Projects/USART_TX.X/main.c
+[v _main main `(v  1 e 1 0 ]
+"33
+[v _USART_config USART_config `(v  1 e 1 0 ]
+"43
+[v _USART_send_char USART_send_char `(v  1 e 1 0 ]
+"52
+[v _USART_receive_char USART_receive_char `(uc  1 e 1 0 ]
+"1824 /opt/microchip/xc8/v2.10/pic/include/pic18f4620.h
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"2046
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"3020
+[v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
+"3230
+[v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
+"3486
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"3498
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"3510
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"3983
+[v _BAUDCON BAUDCON `VEuc  1 e 1 @4024 ]
+"6972
+[v _CREN CREN `VEb  1 e 0 @32092 ]
+"7350
+[v _LATD2 LATD2 `VEb  1 e 0 @31842 ]
+"7560
+[v _OERR OERR `VEb  1 e 0 @32089 ]
+"7839
+[v _RCIF RCIF `VEb  1 e 0 @31989 ]
+"8394
+[v _TXIF TXIF `VEb  1 e 0 @31988 ]
+"17 /home/fran/Documents/UCA/Microcontroladores/MPLABX_Projects/USART_TX.X/main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"18
+[v main@dato dato `uc  1 a 1 75 ]
+"32
+} 0
+"43
+[v _USART_send_char USART_send_char `(v  1 e 1 0 ]
+{
+[v USART_send_char@salida salida `uc  1 a 1 wreg ]
+[v USART_send_char@salida salida `uc  1 a 1 wreg ]
+[v USART_send_char@salida salida `uc  1 a 1 1 ]
+"50
+} 0
+"52
+[v _USART_receive_char USART_receive_char `(uc  1 e 1 0 ]
+{
+"61
+} 0
+"33
+[v _USART_config USART_config `(v  1 e 1 0 ]
+{
+[v USART_config@Baud_Rate Baud_Rate `l  1 p 4 65 ]
+"41
+} 0
+"10 /opt/microchip/xc8/v2.10/pic/sources/c99/common/xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
+} 0
+"43 /opt/microchip/xc8/v2.10/pic/sources/c99/common/fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 64 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 63 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 55 ]
+"70
+} 0
+"11 /opt/microchip/xc8/v2.10/pic/sources/c99/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 33 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 26 ]
+"20
+[v ___fldiv@new_exp new_exp `s  1 a 2 31 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 38 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 37 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 30 ]
+"11
+[v ___fldiv@b b `d  1 p 4 14 ]
+[v ___fldiv@a a `d  1 p 4 18 ]
+"185
+} 0
+"10 /opt/microchip/xc8/v2.10/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"17
+[v ___fladd@grs grs `uc  1 a 1 54 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 53 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 52 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 51 ]
+"10
+[v ___fladd@b b `d  1 p 4 39 ]
+[v ___fladd@a a `d  1 p 4 43 ]
+"237
+} 0

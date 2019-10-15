@@ -1,0 +1,133 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4620 ]
+[d frameptr 4065 ]
+"4 /opt/microchip/xc8/v2.10/pic/sources/c99/common/fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"4 /opt/microchip/xc8/v2.10/pic/sources/c99/common/flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+"62 /opt/microchip/xc8/v2.10/pic/sources/c99/common/float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 /opt/microchip/xc8/v2.10/pic/sources/c99/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 /opt/microchip/xc8/v2.10/pic/sources/c99/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 /opt/microchip/xc8/v2.10/pic/sources/c99/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 /opt/microchip/xc8/v2.10/pic/sources/c99/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 /opt/microchip/xc8/v2.10/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 /opt/microchip/xc8/v2.10/pic/sources/c99/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 /opt/microchip/xc8/v2.10/pic/sources/c99/common/sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 /opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 /opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"10 /opt/microchip/xc8/v2.10/pic/sources/c99/common/xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"12 /home/fran/Documents/UCA/Microcontroladores/MPLABX_Projects/ADC.X/main.c
+[v _main main `(v  1 e 1 0 ]
+"33
+[v _leerADC leerADC `IIH(v  1 e 1 0 ]
+"1216 /opt/microchip/xc8/v2.10/pic/include/pic18f4620.h
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+"1328
+[v _LATE LATE `VEuc  1 e 1 @3981 ]
+"2046
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"2268
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"4373
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"4444
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"4529
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S37 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"4573
+[s S40 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S44 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S51 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S54 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S57 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S60 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[s S63 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S66 . 1 `S37 1 . 1 0 `S40 1 . 1 0 `S44 1 . 1 0 `S51 1 . 1 0 `S54 1 . 1 0 `S57 1 . 1 0 `S60 1 . 1 0 `S63 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES66  1 e 1 @4034 ]
+"4662
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+"5856
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+"5933
+[v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
+"6374
+[v _INTCON INTCON `VEuc  1 e 1 @4082 ]
+"6768
+[v _ADIE ADIE `VEb  1 e 0 @31982 ]
+"6771
+[v _ADIF ADIF `VEb  1 e 0 @31990 ]
+"7083
+[v _GIE GIE `VEb  1 e 0 @32663 ]
+"8172
+[v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
+"12 /home/fran/Documents/UCA/Microcontroladores/MPLABX_Projects/ADC.X/main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"31
+} 0
+"33
+[v _leerADC leerADC `IIH(v  1 e 1 0 ]
+{
+"35
+[v leerADC@valor valor `i  1 a 2 26 ]
+"71
+} 0
+"10 /opt/microchip/xc8/v2.10/pic/sources/c99/common/xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
+} 0
+"4 /opt/microchip/xc8/v2.10/pic/sources/c99/common/flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+{
+[v ___flge@ff1 ff1 `d  1 p 4 14 ]
+[v ___flge@ff2 ff2 `d  1 p 4 18 ]
+"19
+} 0
