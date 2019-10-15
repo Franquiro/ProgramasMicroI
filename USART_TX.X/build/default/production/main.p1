@@ -55,71 +55,71 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3498 /opt/microchip/xc8/v2.10/pic/include/pic18f4620.h
 [; ;/opt/microchip/xc8/v2.10/pic/include/pic18f4620.h: 3498: extern volatile unsigned char RCREG __attribute__((address(0xFAE)));
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"8 ./config.h
-[p x OSC = HSPLL ]
-"9
-[p x FCMEN = OFF ]
+"9 ./config.h
+[p x OSC = INTIO67 ]
 "10
+[p x FCMEN = OFF ]
+"11
 [p x IESO = OFF ]
-"13
-[p x PWRT = OFF ]
 "14
-[p x BOREN = SBORDIS ]
+[p x PWRT = OFF ]
 "15
+[p x BOREN = SBORDIS ]
+"16
 [p x BORV = 3 ]
-"18
-[p x WDT = OFF ]
 "19
+[p x WDT = OFF ]
+"20
 [p x WDTPS = 32768 ]
-"22
-[p x CCP2MX = PORTC ]
 "23
-[p x PBADEN = OFF ]
+[p x CCP2MX = PORTC ]
 "24
-[p x LPT1OSC = OFF ]
+[p x PBADEN = OFF ]
 "25
+[p x LPT1OSC = OFF ]
+"26
 [p x MCLRE = ON ]
-"28
-[p x STVREN = ON ]
 "29
-[p x LVP = ON ]
+[p x STVREN = ON ]
 "30
+[p x LVP = ON ]
+"31
 [p x XINST = OFF ]
-"33
-[p x CP0 = OFF ]
 "34
-[p x CP1 = OFF ]
+[p x CP0 = OFF ]
 "35
-[p x CP2 = OFF ]
+[p x CP1 = OFF ]
 "36
+[p x CP2 = OFF ]
+"37
 [p x CP3 = OFF ]
-"39
-[p x CPB = OFF ]
 "40
+[p x CPB = OFF ]
+"41
 [p x CPD = OFF ]
-"43
-[p x WRT0 = OFF ]
 "44
-[p x WRT1 = OFF ]
+[p x WRT0 = OFF ]
 "45
-[p x WRT2 = OFF ]
+[p x WRT1 = OFF ]
 "46
+[p x WRT2 = OFF ]
+"47
 [p x WRT3 = OFF ]
-"49
-[p x WRTC = OFF ]
 "50
-[p x WRTB = OFF ]
+[p x WRTC = OFF ]
 "51
+[p x WRTB = OFF ]
+"52
 [p x WRTD = OFF ]
-"54
-[p x EBTR0 = OFF ]
 "55
-[p x EBTR1 = OFF ]
+[p x EBTR0 = OFF ]
 "56
-[p x EBTR2 = OFF ]
+[p x EBTR1 = OFF ]
 "57
+[p x EBTR2 = OFF ]
+"58
 [p x EBTR3 = OFF ]
-"60
+"61
 [p x EBTRB = OFF ]
 "54 /opt/microchip/xc8/v2.10/pic/include/pic18f4620.h
 [; ;/opt/microchip/xc8/v2.10/pic/include/pic18f4620.h: 54: __asm("PORTA equ 0F80h");
@@ -552,8 +552,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 23:     USART_config(9600);
 [e ( _USART_config (1 -> -> 9600 `i `l ]
 "24
-[; ;main.c: 24:     _delay((unsigned long)((50)*(40000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 40000000 `l `d .4000.0 `ul ]
+[; ;main.c: 24:     _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "25
 [; ;main.c: 25:     while(1){
 [e :U 275 ]
@@ -585,8 +585,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 34:     TRISC = 0xBF;
 [e = _TRISC -> -> 191 `i `uc ]
 "35
-[; ;main.c: 35:     SPBRG = (int) ((((float)40000000/(float)Baud_Rate)/64)-1);
-[e = _SPBRG -> -> - / / -> -> 40000000 `l `f -> _Baud_Rate `f -> -> 64 `i `f -> -> 1 `i `f `i `uc ]
+[; ;main.c: 35:     SPBRG = 0x06;
+[e = _SPBRG -> -> 6 `i `uc ]
 "36
 [; ;main.c: 36:     TXSTA = 0x20;
 [e = _TXSTA -> -> 32 `i `uc ]
@@ -632,8 +632,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 48:     TXREG = salida;
 [e = _TXREG _salida ]
 "49
-[; ;main.c: 49:     _delay((unsigned long)((5)*(40000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 40000000 `l `d .4000.0 `ul ]
+[; ;main.c: 49:     _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "50
 [; ;main.c: 50: }
 [e :UE 278 ]

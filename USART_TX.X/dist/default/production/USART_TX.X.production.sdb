@@ -7,8 +7,6 @@
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 /opt/microchip/xc8/v2.10/pic/sources/c99/common/float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
-"43 /opt/microchip/xc8/v2.10/pic/sources/c99/common/fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
 "86 /opt/microchip/xc8/v2.10/pic/sources/c99/common/ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
 "54 /opt/microchip/xc8/v2.10/pic/sources/c99/common/ftdiv.c
@@ -29,9 +27,7 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 /opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"10 /opt/microchip/xc8/v2.10/pic/sources/c99/common/xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"17 /home/fran/Documents/UCA/Microcontroladores/MPLABX_Projects/USART_TX.X/main.c
+"17 /home/fran/Documents/UCA/Microcontroladores/ProgramasMicroI/USART_TX.X/main.c
 [v _main main `(v  1 e 1 0 ]
 "33
 [v _USART_config USART_config `(v  1 e 1 0 ]
@@ -65,11 +61,11 @@
 [v _RCIF RCIF `VEb  1 e 0 @31989 ]
 "8394
 [v _TXIF TXIF `VEb  1 e 0 @31988 ]
-"17 /home/fran/Documents/UCA/Microcontroladores/MPLABX_Projects/USART_TX.X/main.c
+"17 /home/fran/Documents/UCA/Microcontroladores/ProgramasMicroI/USART_TX.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "18
-[v main@dato dato `uc  1 a 1 75 ]
+[v main@dato dato `uc  1 a 1 5 ]
 "32
 } 0
 "43
@@ -88,67 +84,6 @@
 "33
 [v _USART_config USART_config `(v  1 e 1 0 ]
 {
-[v USART_config@Baud_Rate Baud_Rate `l  1 p 4 65 ]
+[v USART_config@Baud_Rate Baud_Rate `l  1 p 4 0 ]
 "41
-} 0
-"10 /opt/microchip/xc8/v2.10/pic/sources/c99/common/xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-{
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-"13
-[v ___xxtofl@arg arg `ul  1 a 4 10 ]
-"12
-[v ___xxtofl@exp exp `uc  1 a 1 9 ]
-"10
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 0 ]
-"15
-[v ___xxtofl@sign sign `uc  1 a 1 8 ]
-"44
-} 0
-"43 /opt/microchip/xc8/v2.10/pic/sources/c99/common/fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
-{
-"45
-[v ___fltol@exp1 exp1 `uc  1 a 1 64 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 63 ]
-"43
-[v ___fltol@f1 f1 `d  1 p 4 55 ]
-"70
-} 0
-"11 /opt/microchip/xc8/v2.10/pic/sources/c99/common/sprcdiv.c
-[v ___fldiv __fldiv `(d  1 e 4 0 ]
-{
-"21
-[v ___fldiv@grs grs `ul  1 a 4 33 ]
-"22
-[v ___fldiv@rem rem `ul  1 a 4 26 ]
-"20
-[v ___fldiv@new_exp new_exp `s  1 a 2 31 ]
-"19
-[v ___fldiv@aexp aexp `uc  1 a 1 38 ]
-"18
-[v ___fldiv@bexp bexp `uc  1 a 1 37 ]
-"16
-[v ___fldiv@sign sign `uc  1 a 1 30 ]
-"11
-[v ___fldiv@b b `d  1 p 4 14 ]
-[v ___fldiv@a a `d  1 p 4 18 ]
-"185
-} 0
-"10 /opt/microchip/xc8/v2.10/pic/sources/c99/common/sprcadd.c
-[v ___fladd __fladd `(d  1 e 4 0 ]
-{
-"17
-[v ___fladd@grs grs `uc  1 a 1 54 ]
-"15
-[v ___fladd@bexp bexp `uc  1 a 1 53 ]
-"16
-[v ___fladd@aexp aexp `uc  1 a 1 52 ]
-"13
-[v ___fladd@signs signs `uc  1 a 1 51 ]
-"10
-[v ___fladd@b b `d  1 p 4 39 ]
-[v ___fladd@a a `d  1 p 4 43 ]
-"237
 } 0

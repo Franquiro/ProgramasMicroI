@@ -22,7 +22,8 @@
 
 
 
-#pragma config OSC = HSPLL
+
+#pragma config OSC = INTIO67
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
 
@@ -4451,7 +4452,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "/opt/microchip/xc8/v2.10/pic/include/xc.h" 2 3
-# 66 "./config.h" 2
+# 67 "./config.h" 2
 # 1 "/opt/microchip/xc8/v2.10/pic/include/c99/stdio.h" 1 3
 # 24 "/opt/microchip/xc8/v2.10/pic/include/c99/stdio.h" 3
 # 1 "/opt/microchip/xc8/v2.10/pic/include/c99/bits/alltypes.h" 1 3
@@ -4590,7 +4591,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 67 "./config.h" 2
+# 68 "./config.h" 2
 
 # 1 "/opt/microchip/xc8/v2.10/pic/include/c99/string.h" 1 3
 # 25 "/opt/microchip/xc8/v2.10/pic/include/c99/string.h" 3
@@ -4646,7 +4647,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 69 "./config.h" 2
+# 70 "./config.h" 2
 # 9 "main.c" 2
 
 
@@ -4663,7 +4664,7 @@ void main(void){
     TRISD = 0xFB;
     LATD2 = 1;
     USART_config(9600);
-    _delay((unsigned long)((50)*(40000000/4000.0)));
+    _delay((unsigned long)((50)*(4000000/4000.0)));
     while(1){
 
         dato = USART_receive_char();
@@ -4674,7 +4675,7 @@ void main(void){
 }
 void USART_config(long Baud_Rate){
     TRISC = 0xBF;
-    SPBRG = (int) ((((float)40000000/(float)Baud_Rate)/64)-1);
+    SPBRG = 0x06;
     TXSTA = 0x20;
     RCSTA = 0x90;
     BAUDCON = 0x00;
@@ -4688,7 +4689,7 @@ void USART_send_char(unsigned char salida){
         TXREG = '\n';
     }
     TXREG = salida;
-    _delay((unsigned long)((5)*(40000000/4000.0)));
+    _delay((unsigned long)((5)*(4000000/4000.0)));
 }
 
 char USART_receive_char(){
