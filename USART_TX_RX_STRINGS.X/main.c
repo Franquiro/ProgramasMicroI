@@ -17,9 +17,6 @@ char USART_receive_char(void);
 void USART_receive_string(char data[20]);
 void USART_send_string(char data[20]);
 void main(void){
-//    OSCCON = 0x62;
-//    
-//    PLLEN = 1;
     char dato;
     char data[20] = "USART Iniciada...\0";
     TRISD = 0xFB;
@@ -40,8 +37,6 @@ void USART_config(long Baud_Rate){
     TXSTA = 0x20;       
     RCSTA = 0x90;
     BAUDCON = 0x00;
-    RCIF = 0;
-    
 }
 
 void USART_send_char(unsigned char salida){

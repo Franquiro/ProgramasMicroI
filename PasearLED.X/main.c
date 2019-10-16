@@ -26,7 +26,7 @@ void __interrupt() isr(){
  else if(LATD < 0x80) LATD = LATD*2;
  else LATD = 0x00;
  TMR0 = 0; // esto fue un intento a lo bruto de resetear el timer, porque pense que podria ser eso lo que me estaba afectando.
- // no se si en este caso hay situacion de mismatch como en la interrupcion de portB, y en ese caso, como se limpiaria?
+ // En este caso, no hay situacion de mismatch como con el PORTB
  TMR0IF = 0; 
  GIE = 1;*/
 }
@@ -34,6 +34,9 @@ void __interrupt() isr(){
 void main(void) {
     LATD = 0x00; // pongo un 0 en todos los pines del puerto D
     TRISD = 0x00; //pongo todo el puerto D como salida
+    
+    // para cambiar de interrupcion con boton a interrupcion con timer,
+    // comentar el intcon del boton y descomentar el intcon del timer.
     INTCON = 0xC8; // interrupciones con boton en el puerto B
 //    INTCON = 0xE0; // activo interrupciones de TMR0
 //    T0CON = 0x80; //activo el timer sin prescaler
