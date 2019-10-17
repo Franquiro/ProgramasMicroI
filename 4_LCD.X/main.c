@@ -4,36 +4,35 @@
  *
  * Created on October 8, 2019, 2:34 AM
  */
-//https://deepbluembedded.com/interfacing-16x2-lcd-with-pic-microcontrollers-mplab-xc8/
-//https://www.electronicwings.com/pic/lcd16x2-interfacing-with-pic18f4550
 
+/*  DATA DEL LCD
+ *  http://hades.mech.northwestern.edu/images/f/f7/LCD16x2_HJ1602A.pdf
+ */
 #include "config.h"
 #include <xc.h>
-#include <pic18f4620.h>
 
-#define RS LATD2  /*PIN 2 del PUERTO D se asigna al pin <register select> del LCD*/
-#define EN LATD3  /*PIN 3 del PUERTO D se asigna al pin <enable> del LCD */
-#define ldata LATD  /*PORTD(PD4-PD7) asignado al LCD Data Output*/ 
-#define LCD_Port TRISD  /*Puerto D es el puerto del LCD*/
+#define RS LATD2        // PIN 2 del PUERTO D se asigna al pin <register select> del LCD
+#define EN LATD3        // PIN 3 del PUERTO D se asigna al pin <enable> del LCD 
+#define ldata LATD      // PORTD(PD4-PD7) asignado al LCD Data Output
+#define LCD_Port TRISD  //Puerto D es el puerto del LCD
 
 /*Declaracion de prototipos*/
 
-void MSdelay(unsigned int );       /*delay en milisegundos*/
-void LCD_Init();                   /*Inicializar LCD*/
-void LCD_Command(unsigned char );  /*mandar comando al lcd*/
-void LCD_Char(unsigned char x);    /*mandar un char al lcd*/
-void LCD_String(const char *);     /*mandar un string al lcd*/
-void LCD_String_xy(char, char , const char *);
-void LCD_Clear();                  /*Limpiar el LCD*/
+void MSdelay(unsigned int );                    // delay en milisegundos*/
+void LCD_Init();                                // Inicializar LCD*/
+void LCD_Command(unsigned char );               // mandar comando al lcd*/
+void LCD_Char(unsigned char x);                 // mandar un char al lcd*/
+void LCD_String(const char *);                  // mandar un string al lcd*/
+void LCD_String_xy(char, char , const char *);  // Manda un string con la posicion
+void LCD_Clear();                               // Limpiar el LCD
 
 
 int main(void)
 {    
-    OSCCON = 0x72;  /*Use internal oscillator and 
-                      set frequency to 8 MHz*/ 
-	LCD_Init();  /*Initialize LCD to 5*8 matrix in 4-bit mode*/    
-    LATE   = 0x00;
-    TMR0   = 55536;//1MS
+    OSCCON = 0x72;  // Utilizar el oscilador interno, frecuencia 8MHz 
+	LCD_Init();     // Inicializar el LCD    
+    LATE   = 0x00;  // Puerto E utilizado para el ADC (AN6 o AN7)
+    TMR0   = 55536; // 1ms
     
     /*DEFINO COMO VOY A USAR CADA PUERTO*/
     TRISE  = 0x0F;   // UUUU1111
@@ -45,52 +44,60 @@ int main(void)
     ADCON1 = 0x08;  // U - U - VSS - VDD - PORT<0-6>
     ADCON2 = 0xBC;  // RIGHT - U - 20_TAD - FOSC/4
     ADIE   = 1; //ACTIVO INTERRUPCIONES POR AD
-	LCD_String_xy(1,1,"Lectura ADC");  /*Display string on 1st row, 5th location*/
-    LCD_String_xy(2,3,"Valor");  /*Display string on 2nd row,1st location*/           	
+    
+    /* ARRANCA EL PROGRAMA EN SI */
+	LCD_String_xy(1,1,"Lectura ADC");  // Muestro el string en la primer fila, primer columna
+    LCD_String_xy(2,3,"Valor");  // Muestro el string en la segunda fila, tercer columna           	
 	while(1);		
 }
 
-/****************************Functions********************************/
+/**************************** FUNCIONES ********************************/
 
 void LCD_Init()
 {
-    LCD_Port = 0;       /*PORT as Output Port*/
-    MSdelay(15);        /*15ms,16x2 LCD Power on delay*/
-    LCD_Command(0x02);  /*send for initialization of LCD 
-                          for nibble (4-bit) mode */
-    LCD_Command(0x28);  /*use 2 line and 
-                          initialize 5*8 matrix in (4-bit mode)*/
-	LCD_Command(0x01);  /*clear display screen*/
-    LCD_Command(0x0c);  /*display on cursor off*/
-	LCD_Command(0x06);  /*increment cursor (shift cursor to right)*/	   
+    LCD_Port = 0;       //Puerto D como salida
+    MSdelay(15);        // delay de 15ms
+    LCD_Command(0x02);  // Inicialización del LCD en modo <nibble> (4 bits)
+    LCD_Command(0x28);  // Usar 2 lineas e inicializar matriz de 5*8 en modo nibble
+	LCD_Command(0x01);  // Limpiar el display
+    LCD_Command(0x0c);  // sacar el cursor
+	LCD_Command(0x06);  // Incrementar el cursor (mover a derecha)	   
 }
 
 void LCD_Command(unsigned char cmd )
 {
-	ldata = (ldata & 0x0f) |(0xF0 & cmd);  /*Send higher nibble of command first to PORT*/ 
-	RS = 0;  /*Command Register is selected i.e.RS=0*/ 
-	EN = 1;  /*High-to-low pulse on Enable pin to latch data*/ 
-	NOP();
-	EN = 0;
-	MSdelay(1);
-    ldata = (ldata & 0x0f) | (cmd<<4);  /*Send lower nibble of command to PORT */
-	EN = 1;
-	NOP();
-	EN = 0;
-	MSdelay(3);
+    /* MANDA LA INFORMACIÓN EN MEDIOS BYTES (nibbles) EN DOS PARTES. */
+	/* PARTE ALTA DE LA INFO */
+    ldata = (ldata & 0x0f) |(0xF0 & cmd);  // Manda la parte alta de la info 
+	RS = 0;  // Selecciono el registro de comando RS=0	
+    
+    /* Mando un pulso <High-to-low> en el pin de <ENABLE> para fijar los datos */
+    EN = 1;  // HIGH
+    NOP();   // HOLD
+    EN = 0;  // LOW
+	MSdelay(1); // espero. Es importante esperar entre mandado de nibbles.
+    
+    /* PARTE BAJA DE LA INFO*/
+    ldata = (ldata & 0x0f) | (cmd<<4);  // mando la parte baja de la info
+	EN = 1;     // HIGH
+	NOP();      // HOLD
+	EN = 0;     // LOW
+	MSdelay(3); // espero
 }
 
 
 void LCD_Char(unsigned char dat)
 {  
-	ldata = (ldata & 0x0f) | (0xF0 & dat);  /*Send higher nibble of data first to PORT*/
-	RS = 1;  /*Data Register is selected*/
-	EN = 1;  /*High-to-low pulse on Enable pin to latch data*/
+//    Esta función es igual a LCD_Command() con el RS cambiado
+    
+	ldata = (ldata & 0x0f) | (0xF0 & dat); 
+	RS = 1;  // Register Select se pone en 1 para escribir y leer datos. para todo lo de mas va en 0
+	EN = 1;  
 	NOP();
 	EN = 0;
 	MSdelay(1);
-    ldata = (ldata & 0x0f) | (dat<<4);  /*Send lower nibble of data to PORT*/
-	EN = 1;  /*High-to-low pulse on Enable pin to latch data*/
+    ldata = (ldata & 0x0f) | (dat<<4);  
+	EN = 1;  
 	NOP();
 	EN = 0;
 	MSdelay(3);
@@ -132,7 +139,7 @@ void MSdelay(unsigned int val)
 {
  unsigned int i,j;
  for(i=0;i<val;i++)
-     for(j=0;j<165;j++);  /*This count Provide delay of 1 ms for 8MHz Frequency */
+     for(j=0;j<165;j++);  // bucle de 1ms para 8MHz
  }
 
 void LCD_Num_xy(char row,char pos,int msg)
@@ -144,12 +151,12 @@ void LCD_Num_xy(char row,char pos,int msg)
     unsigned int mask = 0x8000;
     if(row<=1)
     {
-        location=(0x80) | ((pos) & 0x0f); /*Print message on 1st row and desired location*/
+        location=(0x80) | ((pos) & 0x0f); // Fila 1, columna deseada
         LCD_Command(location);
     }
     else
     {
-        location=(0xC0) | ((pos) & 0x0f); /*Print message on 2nd row and desired location*/
+        location=(0xC0) | ((pos) & 0x0f); // Fila 2, columna deseada
         LCD_Command(location);    
     }
     
